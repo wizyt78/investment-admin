@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#062e2a">
 <title>Investment Portal — Administration</title>
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 <div id="toast" class="toast" hidden></div>
@@ -25,9 +25,9 @@
       <button id="langBtn" class="outline-btn">العربية</button>
     </div>
 
-    <form id="loginForm" autocomplete="off" novalidate>
-      <label><span data-i18n="usernameEmail">Username or email</span><input id="loginIdent" name="account_identifier" type="text" autocomplete="new-password" autocapitalize="none" spellcheck="false" inputmode="text" required></label>
-      <label><span data-i18n="password">Password</span><input id="loginPass" name="account_secret" type="text" class="masked-secret" autocomplete="new-password" autocapitalize="none" spellcheck="false" required></label>
+    <form id="loginForm" autocomplete="off">
+      <label><span data-i18n="usernameEmail">Username or email</span><input id="loginIdent" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+      <label><span data-i18n="password">Password</span><input id="loginPass" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
       <button class="primary" type="submit" id="loginBtn" data-i18n="signIn">Sign in</button>
       <p id="loginErr" class="form-error"></p>
     </form>
@@ -36,11 +36,11 @@
       <div class="divider"><span data-i18n="firstTime">First-time setup</span></div>
       <p class="muted" data-i18n="setupHint">Create the first administrator using the private setup key configured on the Worker.</p>
       <form id="setupForm">
-        <label><span data-i18n="setupKey">Setup key</span><input id="setupKey" name="setup_secret" type="text" class="masked-secret" autocomplete="new-password" required></label>
+        <label><span data-i18n="setupKey">Setup key</span><input id="setupKey" type="password" autocomplete="off" required></label>
         <label><span data-i18n="fullName">Full name</span><input id="setupName" required></label>
         <label><span data-i18n="email">Email address</span><input id="setupEmail" type="email" required></label>
         <label><span data-i18n="username">Username</span><input id="setupUser" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
-        <label><span data-i18n="password8">Password (8+ characters)</span><input id="setupPass" name="new_account_secret" type="text" class="masked-secret" autocomplete="new-password" required></label>
+        <label><span data-i18n="password8">Password (8+ characters)</span><input id="setupPass" type="password" autocomplete="new-password" required></label>
         <button class="secondary" type="submit" id="setupBtn" data-i18n="createAdmin">Create administrator</button>
       </form>
       <p id="setupMsg" class="form-error"></p>
@@ -133,7 +133,7 @@
   <div class="modal-card"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div>
 </div>
 
-<script src="config.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="config.js?v=3"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
