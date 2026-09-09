@@ -1,4 +1,5 @@
 const API=window.ADMIN_API_BASE_URL;
+try{document.addEventListener("gesturestart",e=>e.preventDefault(),{passive:false});document.addEventListener("gesturechange",e=>e.preventDefault(),{passive:false});document.addEventListener("gestureend",e=>e.preventDefault(),{passive:false})}catch{}
 let token=localStorage.getItem("ip_admin_token")||"",me=null,lang=localStorage.getItem("ip_admin_lang")||"en";
 const $=id=>document.getElementById(id);
 const T={
