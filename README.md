@@ -2,27 +2,28 @@
 
 Private administration frontend for the Investment Portal.
 
+## Current build
+This build preserves the existing authentication flow and Worker connection while improving:
+- Premium responsive administration UI
+- Mobile layout and horizontal navigation
+- Desktop/tablet/mobile spacing and typography
+- Arabic/English RTL/LTR switching
+- KWD/USD/EUR currency controls in the existing admin actions
+- Safer amount parsing so `3000` is sent as numeric `3000`, not multiplied by the frontend
+- User search/edit/status management
+- Manual credit/debit
+- Funding and withdrawal review
+- Investment management
+- Audit log
+- Light/dark theme
+
 ## Connection
-This frontend connects to the existing `investment-portal-api` Worker:
+The frontend connects to:
 `https://investment-portal-api.helpinghandssupportnetwork.workers.dev`
 
-It uses the same D1-backed accounts as the Member site.
+The exact backend accounting behavior is controlled by the shared Worker/D1. The frontend does not invent balances or financial records.
 
-## Current server capabilities used
-- Secure server-side admin authentication
-- User search
-- User editing
-- Active/suspended status
-- Manual KWD credit/debit
-- Funding approval/rejection
-- Withdrawal approval/rejection
-- Investment management
-- Administrative audit log
-
-## First administrator
-Use **First administrator setup** on the sign-in screen. The setup key is supplied by the Worker environment as `ADMIN_SETUP_KEY`; it is never stored in this repository.
-
-## Important
-The current Worker stores the live wallet balance as KWD. This Admin build therefore sends manual balance changes as KWD. USD/EUR multi-balance accounting should be added to the shared Worker/D1 schema before enabling those currencies for real accounting; the UI does not pretend they are supported server-side.
+## Important backend dependency
+The current frontend can display and send currency selections, but true USD/EUR accounting, investment/earnings controls, withdrawal rejection messages, and member notifications must be implemented in the shared Worker/D1 before those capabilities can be considered complete.
 
 Do not put API secrets or the Worker setup key into this repository.
