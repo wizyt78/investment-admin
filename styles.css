@@ -25,3 +25,40 @@ main{min-width:0}.page{max-width:1480px;margin:0 auto;padding:38px 36px 80px}.pa
 @media(max-width:1000px){.layout{grid-template-columns:1fr}aside{position:sticky;top:80px;z-index:15;border-right:0;border-bottom:1px solid var(--line);padding:8px 10px;overflow-x:auto;white-space:nowrap}aside nav{display:flex;gap:5px;min-width:max-content}.nav{display:inline-flex;width:auto;margin:0;padding:11px 13px}.page{padding:27px 18px 90px}.stats{grid-template-columns:1fr 1fr}.grid-two{grid-template-columns:1fr}.topbar{padding:0 18px}.brand small{display:none}}
 @media(max-width:650px){.auth-brand{position:static;justify-content:center;margin-bottom:20px}.auth-shell{display:block;padding:24px 16px}.auth-card{padding:23px;border-radius:23px}.auth-top{align-items:flex-start}.stats{grid-template-columns:1fr}.page-head{align-items:flex-start;flex-direction:column}.action-grid{grid-template-columns:1fr}.request{grid-template-columns:1fr}.top-actions{gap:5px}.top-actions .outline-btn{padding:0 10px}.topbar{height:70px;padding:0 12px}.layout{min-height:calc(100vh - 70px)}aside{top:70px}.brand-mark.small{width:37px;height:37px}.brand b{font-size:14px}.admin-chip{display:none}.page{padding:22px 13px 80px}.panel{padding:17px}.stats article{padding:19px}.page-head h1{font-size:38px}.toolbar{flex-direction:column}.toolbar .secondary{width:100%}}
 body.dark{background:#071512;color:#e9f2ef}body.dark .topbar,body.dark aside,body.dark .panel,body.dark .stats article,body.dark .auth-card,body.dark .modal-card{background:#0d211e;border-color:#23423c;color:#e9f2ef}body.dark aside{background:#0a1b18}body.dark .auth-shell{background:#071512}body.dark .outline-btn,body.dark .icon-btn,body.dark .mini,body.dark .action,body.dark input,body.dark select{background:#112a26;color:#e9f2ef;border-color:#2b4a44}body.dark .action span,body.dark .security-row p,body.dark .stats small,body.dark .stats span,body.dark .auth-card p,body.dark .page-head p,body.dark .request p{color:#9bb0aa}body.dark .nav{color:#a8bab5}body.dark .nav.active{background:#163d35;color:#8de2ce}body.dark .secondary{background:#153b34;color:#9be3d1}body.dark .table td,body.dark .table th{border-color:#23423c}body.dark .table th{background:#102a25}body.dark .badge{background:#17332e;color:#b5c8c2}body.dark .live-pill{background:#102a25;color:#b5c8c2;border-color:#28463f}
+
+/* Premium admin controls and mobile sizing */
+html,body{max-width:100%;overscroll-behavior-x:none}
+textarea{font:inherit;font-size:16px;width:100%;resize:vertical;min-height:130px;border:1px solid #d3e1dd;border-radius:14px;padding:14px 15px;background:#fbfdfc;color:var(--ink);outline:none;transition:.18s}
+textarea:focus{border-color:#0b8873;box-shadow:0 0 0 4px rgba(11,136,115,.1)}
+.modal-form{display:grid;gap:16px}
+.modal-form .modal-hero{padding:16px 18px;border:1px solid #dcebe7;border-radius:18px;background:linear-gradient(135deg,#f2faf7,#fff)}
+.modal-form .modal-hero h3{margin:3px 0 5px;font-size:22px}
+.modal-form .modal-hero p{margin:0;color:var(--muted)}
+.mini-actions{display:flex;flex-wrap:wrap;gap:7px}
+.table-wrap{overflow:auto;-webkit-overflow-scrolling:touch}
+.request{align-items:center}
+@media (max-width:760px){
+  .topbar{height:auto;min-height:76px;padding:12px 14px;gap:10px}
+  .brand small,.admin-chip small{display:none}
+  .top-actions{gap:6px}
+  .admin-chip{display:none}
+  .layout{display:block;min-height:calc(100vh - 76px)}
+  aside{padding:8px 10px;border-right:0;border-bottom:1px solid var(--line);position:sticky;top:76px;z-index:15;overflow-x:auto}
+  aside nav{display:flex;gap:6px;min-width:max-content}
+  .nav{width:auto;margin:0;padding:10px 12px;white-space:nowrap}
+  main{padding:18px 14px 40px}
+  .page-head{align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .page-head h1{font-size:38px}
+  .stats{grid-template-columns:1fr 1fr}
+  .grid-two{grid-template-columns:1fr}
+  .request{flex-direction:column;align-items:stretch}
+  .request>div:last-child{text-align:left}
+  .mini-actions .mini{min-height:44px}
+  .modal{padding:14px}
+  .modal-card{width:min(620px,100%);max-height:90vh;overflow:auto}
+}
+@media (max-width:430px){
+  .stats{grid-template-columns:1fr}
+  .topbar .icon-btn{width:44px}
+  .topbar .outline-btn{padding:0 12px}
+}
