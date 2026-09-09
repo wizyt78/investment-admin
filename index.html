@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#062e2a">
 <title>Investment Portal — Administration</title>
 <link rel="stylesheet" href="styles.css?v=1">
@@ -25,9 +25,9 @@
       <button id="langBtn" class="outline-btn">العربية</button>
     </div>
 
-    <form id="loginForm">
-      <label><span data-i18n="usernameEmail">Username or email</span><input id="loginIdent" autocomplete="username" required></label>
-      <label><span data-i18n="password">Password</span><input id="loginPass" type="password" autocomplete="current-password" required></label>
+    <form id="loginForm" autocomplete="off">
+      <label><span data-i18n="usernameEmail">Username or email</span><input id="loginIdent" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+      <label><span data-i18n="password">Password</span><input id="loginPass" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
       <button class="primary" type="submit" id="loginBtn" data-i18n="signIn">Sign in</button>
       <p id="loginErr" class="form-error"></p>
     </form>
@@ -39,7 +39,7 @@
         <label><span data-i18n="setupKey">Setup key</span><input id="setupKey" type="password" autocomplete="off" required></label>
         <label><span data-i18n="fullName">Full name</span><input id="setupName" required></label>
         <label><span data-i18n="email">Email address</span><input id="setupEmail" type="email" required></label>
-        <label><span data-i18n="username">Username</span><input id="setupUser" autocomplete="username" required></label>
+        <label><span data-i18n="username">Username</span><input id="setupUser" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
         <label><span data-i18n="password8">Password (8+ characters)</span><input id="setupPass" type="password" autocomplete="new-password" required></label>
         <button class="secondary" type="submit" id="setupBtn" data-i18n="createAdmin">Create administrator</button>
       </form>
