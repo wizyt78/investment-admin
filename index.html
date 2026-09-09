@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#062e2a">
+<title>Investment Portal — Administration</title>
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<div id="toast" class="toast" hidden></div>
+
+<section id="auth" class="auth-shell">
+  <div class="auth-brand">
+    <div class="brand-mark"><span></span><span></span><span></span></div>
+    <div><b data-i18n="brand">Investment Portal</b><small data-i18n="adminAccess">Administration</small></div>
+  </div>
+  <div class="auth-card">
+    <div class="auth-top">
+      <div>
+        <p class="eyebrow" data-i18n="secureAdmin">SECURE ADMINISTRATION</p>
+        <h1 id="authTitle" data-i18n="adminSignIn">Admin sign in</h1>
+        <p id="authSub" data-i18n="signInSub">Sign in with your administrator account.</p>
+      </div>
+      <button id="langBtn" class="outline-btn">العربية</button>
+    </div>
+
+    <form id="loginForm">
+      <label><span data-i18n="usernameEmail">Username or email</span><input id="loginIdent" autocomplete="username" required></label>
+      <label><span data-i18n="password">Password</span><input id="loginPass" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit" id="loginBtn" data-i18n="signIn">Sign in</button>
+      <p id="loginErr" class="form-error"></p>
+    </form>
+
+    <div id="setupBox" hidden>
+      <div class="divider"><span data-i18n="firstTime">First-time setup</span></div>
+      <p class="muted" data-i18n="setupHint">Create the first administrator using the private setup key configured on the Worker.</p>
+      <form id="setupForm">
+        <label><span data-i18n="setupKey">Setup key</span><input id="setupKey" type="password" autocomplete="off" required></label>
+        <label><span data-i18n="fullName">Full name</span><input id="setupName" required></label>
+        <label><span data-i18n="email">Email address</span><input id="setupEmail" type="email" required></label>
+        <label><span data-i18n="username">Username</span><input id="setupUser" autocomplete="username" required></label>
+        <label><span data-i18n="password8">Password (8+ characters)</span><input id="setupPass" type="password" autocomplete="new-password" required></label>
+        <button class="secondary" type="submit" id="setupBtn" data-i18n="createAdmin">Create administrator</button>
+      </form>
+      <p id="setupMsg" class="form-error"></p>
+    </div>
+
+    <button id="showSetup" class="text-btn" data-i18n="firstAdmin">First administrator setup</button>
+  </div>
+</section>
+
+<section id="app" hidden>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark small"><span></span><span></span><span></span></div>
+    <div><b data-i18n="brand">Investment Portal</b><small data-i18n="adminAccess">Administration</small></div>
+  </div>
+  <div class="top-actions">
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☾</button>
+    <button id="langBtnApp" class="outline-btn">العربية</button>
+    <div class="admin-chip"><span id="adminInitial">A</span><div><b id="adminName">Administrator</b><small data-i18n="administrator">Administrator</small></div></div>
+    <button id="logout" class="outline-btn" data-i18n="logout">Log out</button>
+  </div>
+</header>
+
+<div class="layout">
+<aside id="sidebar">
+  <nav>
+    <button class="nav active" data-page="dashboard"><span>⌂</span><span data-i18n="dashboard">Dashboard</span></button>
+    <button class="nav" data-page="users"><span>♙</span><span data-i18n="users">Users</span></button>
+    <button class="nav" data-page="funding"><span>＋</span><span data-i18n="funding">Funding</span><em id="fundingBadge" hidden>0</em></button>
+    <button class="nav" data-page="withdrawals"><span>↗</span><span data-i18n="withdrawals">Withdrawals</span><em id="withdrawBadge" hidden>0</em></button>
+    <button class="nav" data-page="investments"><span>⌁</span><span data-i18n="investments">Investments</span></button>
+    <button class="nav" data-page="audit"><span>≡</span><span data-i18n="audit">Audit log</span></button>
+  </nav>
+</aside>
+
+<main>
+<section id="dashboard" class="page">
+  <div class="page-head"><div><p class="eyebrow" data-i18n="overview">ADMINISTRATION</p><h1 data-i18n="dashboard">Dashboard</h1><p data-i18n="dashboardSub">A live view of members, requests and account activity.</p></div><button class="secondary" id="refreshAll" data-i18n="refresh">Refresh</button></div>
+  <div class="stats">
+    <article><small data-i18n="totalUsers">Total users</small><strong id="statUsers">0</strong><span data-i18n="serverRecorded">Server recorded</span></article>
+    <article><small data-i18n="pendingFunding">Pending funding</small><strong id="statFunding">0</strong><span data-i18n="awaitingReview">Awaiting review</span></article>
+    <article><small data-i18n="pendingWithdrawals">Pending withdrawals</small><strong id="statWithdrawals">0</strong><span data-i18n="awaitingReview">Awaiting review</span></article>
+    <article><small data-i18n="recordedKwd">Recorded KWD balance</small><strong id="statBalance">0.000 KWD</strong><span data-i18n="fromMemberWallets">From member wallets</span></article>
+  </div>
+  <div class="grid-two">
+    <article class="panel"><div class="panel-head"><h2 data-i18n="quickActions">Quick actions</h2></div>
+      <div class="action-grid">
+        <button class="action" data-page="users"><b data-i18n="manageUsers">Manage users</b><span data-i18n="searchEditStatus">Search, edit and change status</span></button>
+        <button class="action" data-page="funding"><b data-i18n="reviewFunding">Review funding</b><span data-i18n="approveReject">Approve or reject requests</span></button>
+        <button class="action" data-page="withdrawals"><b data-i18n="reviewWithdrawals">Review withdrawals</b><span data-i18n="approveReject">Approve or reject requests</span></button>
+        <button class="action" data-page="investments"><b data-i18n="manageInvestments">Manage investments</b><span data-i18n="createInvestment">Create recorded investments</span></button>
+      </div>
+    </article>
+    <article class="panel"><div class="panel-head"><h2 data-i18n="security">Security</h2></div>
+      <div class="security-row"><span class="status-dot"></span><div><b data-i18n="serverAuth">Server-side authentication</b><p data-i18n="serverAuthSub">Admin role is verified by the Worker on every protected request.</p></div></div>
+      <div class="security-row"><span class="status-dot"></span><div><b data-i18n="auditTrail">Administrative audit trail</b><p data-i18n="auditTrailSub">Credit, debit, approvals and management actions are recorded.</p></div></div>
+    </article>
+  </div>
+</section>
+
+<section id="users" class="page" hidden>
+  <div class="page-head"><div><p class="eyebrow" data-i18n="members">MEMBERS</p><h1 data-i18n="users">Users</h1><p data-i18n="usersSub">Search and manage member accounts.</p></div></div>
+  <article class="panel"><div class="toolbar"><input id="userSearch" data-i18n-placeholder="searchUsers" placeholder="Search username, name or email"><button class="secondary" id="searchUsersBtn" data-i18n="search">Search</button></div><div id="usersTable" class="table-wrap"></div></article>
+</section>
+
+<section id="funding" class="page" hidden>
+  <div class="page-head"><div><p class="eyebrow" data-i18n="requests">REQUESTS</p><h1 data-i18n="funding">Funding requests</h1><p data-i18n="fundingSub">Review member funding requests before crediting accounts.</p></div><select id="fundingFilter"><option value="pending" data-i18n="pending">Pending</option><option value="all" data-i18n="all">All</option><option value="approved" data-i18n="approved">Approved</option><option value="rejected" data-i18n="rejected">Rejected</option></select></div>
+  <article class="panel"><div id="fundingList" class="request-list"></div></article>
+</section>
+
+<section id="withdrawals" class="page" hidden>
+  <div class="page-head"><div><p class="eyebrow" data-i18n="requests">REQUESTS</p><h1 data-i18n="withdrawals">Withdrawal requests</h1><p data-i18n="withdrawalsSub">Review requests against available member balance.</p></div><select id="withdrawFilter"><option value="pending" data-i18n="pending">Pending</option><option value="all" data-i18n="all">All</option><option value="approved" data-i18n="approved">Approved</option><option value="rejected" data-i18n="rejected">Rejected</option></select></div>
+  <article class="panel"><div id="withdrawList" class="request-list"></div></article>
+</section>
+
+<section id="investments" class="page" hidden>
+  <div class="page-head"><div><p class="eyebrow" data-i18n="portfolio">PORTFOLIO</p><h1 data-i18n="investments">Investments</h1><p data-i18n="investmentsSub">Create and review server-recorded investments.</p></div><button class="primary" id="newInvestment" data-i18n="newInvestment">New investment</button></div>
+  <article class="panel"><div id="investmentList" class="table-wrap"></div></article>
+</section>
+
+<section id="audit" class="page" hidden>
+  <div class="page-head"><div><p class="eyebrow" data-i18n="securityLog">SECURITY LOG</p><h1 data-i18n="audit">Audit log</h1><p data-i18n="auditSub">Administrative actions recorded by the Worker.</p></div></div>
+  <article class="panel"><div id="auditList" class="table-wrap"></div></article>
+</section>
+</main>
+</div>
+</section>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-card"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div>
+</div>
+
+<script src="config.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
