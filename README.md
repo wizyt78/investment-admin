@@ -27,3 +27,7 @@ The exact backend accounting behavior is controlled by the shared Worker/D1. The
 The current frontend can display and send currency selections, but true USD/EUR accounting, investment/earnings controls, withdrawal rejection messages, and member notifications must be implemented in the shared Worker/D1 before those capabilities can be considered complete.
 
 Do not put API secrets or the Worker setup key into this repository.
+
+
+## Added Admin controls
+Password reset, secure Login as User, and safe user deactivation controls were added to the existing UI. These require the corresponding protected Worker endpoints before they can execute successfully.
